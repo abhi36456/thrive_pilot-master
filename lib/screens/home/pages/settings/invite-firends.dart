@@ -12,7 +12,7 @@ class Invite extends StatelessWidget {
     Size size = new Size(MediaQuery.of(context).size.width, 200.0);
     return Scaffold(
         appBar: AppBar(
-          title: Text('Say to Friend'),
+          title: Text('Share ThrivePilot'),
         ),
         body: Container(
           child: Column(
@@ -45,7 +45,7 @@ class Invite extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(12.0),
                 child: Text(
-                  'Invite your friend to thrivepilot.',
+                  'Invite your friend to ThrivePilot.',
                   textAlign: TextAlign.center,
                 ),
               ),

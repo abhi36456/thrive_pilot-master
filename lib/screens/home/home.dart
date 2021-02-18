@@ -7,7 +7,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:global_configuration/global_configuration.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:thrive_pilot/models/summary.dart';
 import 'package:thrive_pilot/utils/api.dart';
@@ -17,6 +16,7 @@ import 'package:thrive_pilot/widgets/dashboard_table.dart';
 import 'pages/calendar_events.dart';
 import 'pages/dashboard/details.dart';
 import 'pages/dashboard/stories.dart';
+import 'pages/settings/edit-profile.dart';
 import 'pages/settings/setting.dart';
 import 'pages/timer/timer.dart';
 
@@ -27,32 +27,25 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-// Future<dynamic> myBackgroundMessageHandler(Map<String, dynamic> message) {
-//   print(message);
-// }
-
 class _HomeState extends State<Home> with WidgetsBindingObserver {
   Summary summary;
   String username = "", photoUrl;
   bool isStored = false;
   void getData() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    // if (prefs.containsKey("isStored")) {
-    // try {
-    Dio dio = Dio();
-    Response response = await dio.post(baseUrl + "get_minute.php",
-        data: FormData.fromMap(
-            {"email": FirebaseAuth.instance.currentUser.email}));
-    print(response.data);
-    var data = jsonDecode(response.data);
-    setState(() {
-      isStored = true;
-      summary = Summary.fromJson(data["data"]);
-    });
-    // } catch (e) {
-    //   print(e);
-    // }
-    // }
+    try {
+      Dio dio = Dio();
+      Response response = await dio.post(baseUrl + "get_minute.php",
+          data: FormData.fromMap(
+              {"email": FirebaseAuth.instance.currentUser.email}));
+      print(response.data);
+      var data = jsonDecode(response.data);
+      setState(() {
+        isStored = true;
+        summary = Summary.fromJson(data["data"]);
+      });
+    } catch (e) {
+      print(e);
+    }
   }
 
   @override
@@ -67,10 +60,6 @@ class _HomeState extends State<Home> with WidgetsBindingObserver {
     currentuser();
     _getFeaturedStories();
     _getCategories();
-    // if (FirebaseAuth.instance.currentUser.displayName == null ||
-    //     FirebaseAuth.instance.currentUser.displayName.isEmpty) {
-    //   currentuser();
-    // }
     WidgetsBinding.instance.addObserver(this);
   }
 
@@ -127,22 +116,6 @@ class _HomeState extends State<Home> with WidgetsBindingObserver {
   int _selectedIndex = 0;
 
   List<Widget> pages = [];
-  appBarWidget() {
-    return Positioned(
-      top: -10,
-      height: 270,
-      width: MediaQuery.of(context).size.width,
-      child: Container(
-        color: AppColors.primaryColor,
-        child: Padding(
-          padding: EdgeInsets.all(20.0),
-          child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[]),
-        ),
-      ),
-    );
-  }
 
   currentuser() async {
     FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -168,6 +141,15 @@ class _HomeState extends State<Home> with WidgetsBindingObserver {
     return user;
   }
 
+  String selected;
+
+  void select(String i) {
+    setState(() {
+      selected = i;
+      _selectedIndex = 1;
+    });
+  }
+
   buildWidget() {
     return Positioned(
       // top: MediaQuery.of(context).size.height * 0.02,
@@ -177,7 +159,7 @@ class _HomeState extends State<Home> with WidgetsBindingObserver {
           children: <Widget>[
             Container(
               decoration: BoxDecoration(gradient: AppColors.gradient),
-              padding: EdgeInsets.only(bottom: 15),
+              padding: EdgeInsets.only(bottom: 50),
               child: Column(
                 children: [
                   Container(
@@ -203,6 +185,50 @@ class _HomeState extends State<Home> with WidgetsBindingObserver {
                       ],
                     ),
                   ),
+                  Text(
+                    "What would you like to do? ",
+                    style: TextStyle(fontSize: 20, color: Colors.white),
+                  ),
+                  //buttons
+                  Container(
+                    margin: const EdgeInsets.only(top: 20, bottom: 30),
+                    padding: EdgeInsets.symmetric(horizontal: 15),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          child: RaisedButton(
+                            padding: EdgeInsets.symmetric(vertical: 15),
+                            onPressed: () {
+                              select("meditate");
+                            },
+                            child: Text(
+                              "Meditate",
+                              style: TextStyle(
+                                  color: AppColors.primaryColor, fontSize: 20),
+                            ),
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(
+                          child: RaisedButton(
+                            padding: EdgeInsets.symmetric(vertical: 15),
+                            onPressed: () {
+                              select("focus");
+                            },
+                            child: Text(
+                              "Focus",
+                              style: TextStyle(
+                                  color: AppColors.primaryColor, fontSize: 20),
+                            ),
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                   SizedBox(height: 20),
                   summary == null
                       ? Container()
@@ -212,14 +238,6 @@ class _HomeState extends State<Home> with WidgetsBindingObserver {
                                   const EdgeInsets.symmetric(horizontal: 15),
                               child: Column(
                                 children: [
-                                  Text(
-                                    "Mindful Productivity",
-                                    style: TextStyle(
-                                        color: Colors.white, fontSize: 28),
-                                  ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
                                   DashboardTable(
                                     title: "Mindful Minutes",
                                     data: summary.meditate,
@@ -259,7 +277,7 @@ class _HomeState extends State<Home> with WidgetsBindingObserver {
             buildWidget(),
           ]),
         ));
-    Widget _progress = Dashboard();
+    Widget _progress = Dashboard(selected: selected);
     // Widget _explore = Explore();
     Widget _setting = Setting();
     pages = [_page1, _progress, _setting];
@@ -278,8 +296,21 @@ class _HomeState extends State<Home> with WidgetsBindingObserver {
               ),
               onPressed: () {
                 Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (_) => CalendarEvents()));
+                    .push(CupertinoPageRoute(builder: (_) => CalendarEvents()));
               }),
+          IconButton(
+            icon: Icon(
+              Icons.account_box,
+              color: AppColors.primaryColor,
+              size: 28,
+            ),
+            onPressed: () {
+              Navigator.push(
+                context,
+                CupertinoPageRoute(builder: (context) => EditProfile()),
+              );
+            },
+          )
         ],
       ),
       body: Stack(
@@ -306,11 +337,15 @@ class _HomeState extends State<Home> with WidgetsBindingObserver {
           // Icon(Icons.explore, color: iconColor),
           Icon(Icons.settings, color: Colors.white),
         ],
+        index: _selectedIndex,
         onTap: (int index) {
           if (index == 0) {
             getData();
           }
-          setState(() => _selectedIndex = index);
+          setState(() {
+            selected = null;
+            _selectedIndex = index;
+          });
         });
   }
 

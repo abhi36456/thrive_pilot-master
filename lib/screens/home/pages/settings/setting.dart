@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:thrive_pilot/screens/auth/login_page.dart';
 
 import 'edit-profile.dart';
@@ -65,7 +64,7 @@ class _SettingState extends State<Setting> {
                     Icon(Icons.share, color: Color(0xFF727C8E)),
                     const SizedBox(width: 16),
                     Text(
-                      'Say to Friends',
+                      'Share ThrivePilot',
                       style: TextStyle(fontSize: 14, color: Color(0xFF212121)),
                     )
                   ],
@@ -76,8 +75,6 @@ class _SettingState extends State<Setting> {
               onTap: () async {
                 await _googleSignIn.signOut();
                 await _auth.signOut();
-                SharedPreferences prefs = await SharedPreferences.getInstance();
-                await prefs.clear();
                 Navigator.of(context).pushReplacement(
                     MaterialPageRoute(builder: (_) => LoginPage()));
               },

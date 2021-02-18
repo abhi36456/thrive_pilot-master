@@ -378,51 +378,6 @@ class _LoginPageState extends State<LoginPage> {
   }
 }
 
-// storeData(user) async {
-//   SharedPreferences prefs = await SharedPreferences.getInstance();
-//   FirebaseFirestore.instance
-//       .collection("fl_content")
-//       .doc("${user.uid}")
-//       .snapshots()
-//       .listen((onData) async {
-//     print(onData.data());
-//     String name =
-//         onData.data()["name"] == null ? "" : onData.data()["name"].toString();
-//
-//     String photourl = onData.data()["photoUrl"].toString().length <= 0
-//         ? null
-//         : onData.data()["photoUrl"];
-//     print("NAME $name");
-//     print("pht $photourl");
-//     try {
-//       Dio dio = Dio();
-//       Response response = await dio.post(baseUrl + "social_login.php",
-//           data: FormData.fromMap({
-//             "full_name": name,
-//             "email": user.email,
-//             "social_key": user.uid,
-//             "login_type": "google",
-//             "profile_pic": user.photoURL,
-//             "device_type": Platform.isAndroid ? "A" : "I",
-//             "device_token": "",
-//           }));
-//       var data = jsonDecode(response.data);
-//       print(data);
-//       if (data["status"]) {
-//         prefs.setString("key", data["data"]["auth_key"]);
-//         prefs.setString("name", name);
-//         prefs.setString("photo", photourl);
-//       } else {
-//         Fluttertoast.showToast(msg: data["message"]);
-//         await FirebaseAuth.instance.signOut();
-//       }
-//     } catch (e) {
-//       Fluttertoast.showToast(msg: "Something went wrong!");
-//       throw (e);
-//     }
-//   });
-// }
-
 Future _setDataUser(User currentUser) async {
   Map metaData = {
     "createdBy": "0L1uQlYHdrdrG0D5CroAeybZsL33",
@@ -437,7 +392,6 @@ Future _setDataUser(User currentUser) async {
   };
   try {
     if (currentUser.uid != null) {
-      // SharedPreferences prefs = await SharedPreferences.getInstance();
       FirebaseFirestore.instance
           .collection('fl_content')
           .where('_fl_meta_.fl_id', isEqualTo: currentUser.uid)
@@ -455,7 +409,6 @@ Future _setDataUser(User currentUser) async {
             "photoUrl": currentUser.photoURL,
             "joiningDate": DateTime.now().toString()
           }, SetOptions(merge: true));
-          // storeData(currentUser);
         }
       });
     }

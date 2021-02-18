@@ -16,13 +16,9 @@ class Details extends StatefulWidget {
 }
 
 class _DetailsState extends State<Details> {
-  // bool isPuchased = false;
   final PageController ctrl = PageController(viewportFraction: 0.8);
   int currentPage = 0;
   List audioDetailsList = [];
-  // bool isExpired = true;
-  // bool isTrial = true;
-  // int trialDays = 0;
 
   @override
   void initState() {
@@ -35,56 +31,9 @@ class _DetailsState extends State<Details> {
         });
       }
     });
-    // _getpastPurchases();
     super.initState();
     _getAudioDetailsAndCheckExpiry();
   }
-
-  // /// check if user has pruchased
-  // PurchaseDetails _hasPurchased(String productId) {
-  //   return purchases.firstWhere((purchase) => purchase.productID == productId,
-  //       orElse: () => null);
-  // }
-  //
-  // ///verifying pourchase of user
-  // Future<void> _verifyPuchase(String id) async {
-  //   print('Vérification des achats');
-  //   PurchaseDetails purchase = _hasPurchased(id);
-  //
-  //   if (purchase != null && purchase.status == PurchaseStatus.purchased) {
-  //     print(purchase.productID);
-  //     if (Platform.isIOS) {
-  //       await _iap.completePurchase(purchase);
-  //       isPuchased = true;
-  //     }
-  //     isPuchased = true;
-  //   } else {
-  //     isPuchased = false;
-  //   }
-  //
-  //   setState(() {
-  //     print("isPuchased $isPuchased");
-  //   });
-  // }
-  //
-  // Future<void> _getpastPurchases() async {
-  //   print('in past purchases');
-  //   QueryPurchaseDetailsResponse response = await _iap.queryPastPurchases();
-  //   print('response   ${response.pastPurchases}');
-  //   for (PurchaseDetails purchase in response.pastPurchases) {
-  //     if (Platform.isIOS) {
-  //       await _iap.completePurchase(purchase);
-  //     }
-  //   }
-  //   setState(() {
-  //     purchases = response.pastPurchases;
-  //   });
-  //   if (response.pastPurchases.length > 0) {
-  //     purchases.forEach((purchase) async {
-  //       await _verifyPuchase(purchase.productID);
-  //     });
-  //   } else {}
-  // }
 
   _getAudioDetailsAndCheckExpiry() async {
     return FirebaseFirestore.instance

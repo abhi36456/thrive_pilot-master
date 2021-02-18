@@ -2,12 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:thrive_pilot/screens/home/home.dart';
 import 'package:thrive_pilot/utils/animation.dart';
 import 'package:thrive_pilot/utils/app_colors.dart';
 
-import 'login_page.dart';
 import 'termsCondition.dart';
 
 class Signup extends StatefulWidget {
@@ -289,7 +287,6 @@ class _SignupState extends State<Signup> {
   }
 
   Future _setDataUser(currentUser, displayName) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
     var expiryDate;
     Map metaData = {
       "createdBy": "0L1uQlYHdrdrG0D5CroAeybZsL33",
@@ -315,9 +312,6 @@ class _SignupState extends State<Signup> {
         },
         SetOptions(merge: true),
       );
-      expiryDate = DateTime.now().add(new Duration(days: 7));
-      prefs.setString('expiryDate', expiryDate.toString());
-      prefs.setBool('isTrial', true);
     } catch (err) {
       print("Error: $err");
       throw (err);

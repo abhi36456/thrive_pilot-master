@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:thrive_pilot/models/summary.dart';
 import 'package:thrive_pilot/screens/home/pages/timer/focus.dart';
 import 'package:thrive_pilot/utils/app_colors.dart';
 // import 'mindfullness.dart';
 
 class Dashboard extends StatefulWidget {
+  String selected;
+
+  Dashboard({this.selected});
+
   @override
   _DashboardState createState() => _DashboardState();
 }
 
 class _DashboardState extends State<Dashboard> {
-  Summary summary;
   String selected;
 
   void select(String i) {
@@ -24,6 +26,7 @@ class _DashboardState extends State<Dashboard> {
 
   @override
   void initState() {
+    selected = widget.selected;
     super.initState();
   }
 
@@ -36,10 +39,6 @@ class _DashboardState extends State<Dashboard> {
         children: [
           SizedBox(
             height: 15,
-          ),
-          Text(
-            "What would you like to do? ",
-            style: TextStyle(fontSize: 20),
           ),
           //buttons
           Container(
@@ -90,11 +89,9 @@ class _DashboardState extends State<Dashboard> {
               ],
             ),
           ),
-          selected != null
-              ? FocusPage(
-                  type: selected,
-                )
-              : Container(),
+          FocusPage(
+            type: selected,
+          )
         ],
       ),
     );

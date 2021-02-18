@@ -15,7 +15,6 @@ class DashboardTable extends StatelessWidget {
             color: Colors.white,
           ),
           borderRadius: BorderRadius.circular(10)),
-      // padding: const EdgeInsets.all(5),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

@@ -116,7 +116,6 @@ class _FocusPageState extends State<FocusPage> with WidgetsBindingObserver {
             "minute": time,
             "email": FirebaseAuth.instance.currentUser.email
           }));
-      // prefs.setBool("isStored", true);
     } catch (e) {
       print(e);
     }
@@ -124,7 +123,7 @@ class _FocusPageState extends State<FocusPage> with WidgetsBindingObserver {
 
   void end() async {
     Fluttertoast.showToast(
-        msg: "$_selectedTime minutes focus session is completed");
+        msg: "$_selectedTime minutes ${widget.type} session is completed");
     logFocus(_selectedTime);
     _selectedTime = 0;
     _progress = 0;
@@ -336,11 +335,13 @@ class _FocusPageState extends State<FocusPage> with WidgetsBindingObserver {
               GestureDetector(
                 onTap: () {
                   if (_selectedTime == 0) {
-                    // _key.currentState.showSnackBar(SnackBar(
-                    //   content: Text("Select time more than 0 Mins"),
-                    // ));
-                  } else
-                    start();
+                    Fluttertoast.showToast(msg: "Please select time");
+                  } else {
+                    if (widget.type == null) {
+                      Fluttertoast.showToast(msg: "Please select activity");
+                    } else
+                      start();
+                  }
                 },
                 child: Container(
                   margin: const EdgeInsets.only(bottom: 15),
