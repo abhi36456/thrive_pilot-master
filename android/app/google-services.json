@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "729228812626",
+    "project_id": "thrivepilot-2a5c7",
+    "storage_bucket": "thrivepilot-2a5c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729228812626:android:a2f0d6f4bf547f08ccda8b",
+        "android_client_info": {
+          "package_name": "com.app.thrivepilot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "729228812626-ggbfbro4c6e7neoo9hsh4t2bkdl3akde.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.app.thrivepilot",
+            "certificate_hash": "a86b513a800762360371a452e1aca6541b5cd290"
+          }
+        },
+        {
+          "client_id": "729228812626-c77o49qjri5b2159epboqfdntmeo4oiu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpt-POBdYwIosvg54hT1GW2w68H2gZQjI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "729228812626-c77o49qjri5b2159epboqfdntmeo4oiu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "729228812626-pk06sc5nc4l59ah94ih9i4k582lqhn3b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.app.thrivepilot"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:729228812626:android:5a6cb7e788a99db7ccda8b",
+        "android_client_info": {
+          "package_name": "com.deligence.meditation4soul"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "729228812626-8305l4es6fu8ggrlegok08tbasko80mp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.deligence.meditation4soul",
+            "certificate_hash": "a86b513a800762360371a452e1aca6541b5cd290"
+          }
+        },
+        {
+          "client_id": "729228812626-c77o49qjri5b2159epboqfdntmeo4oiu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpt-POBdYwIosvg54hT1GW2w68H2gZQjI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "729228812626-c77o49qjri5b2159epboqfdntmeo4oiu.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "729228812626-pk06sc5nc4l59ah94ih9i4k582lqhn3b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.app.thrivepilot"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

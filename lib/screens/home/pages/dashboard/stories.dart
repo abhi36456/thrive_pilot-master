@@ -1,0 +1,103 @@
+import 'package:flutter/material.dart';
+import 'package:global_configuration/global_configuration.dart';
+import 'package:shimmer/shimmer.dart';
+import 'package:story_view/story_view.dart';
+import 'package:thrive_pilot/utils/app_colors.dart';
+
+class Stories extends StatefulWidget {
+  final dynamic fsl;
+  const Stories(this.fsl);
+
+  @override
+  _StoriesState createState() => _StoriesState();
+}
+
+class _StoriesState extends State<Stories> {
+  List<dynamic> storyItemDetails = [];
+  _getStoryItems() async {
+    for (var items in widget.fsl) {
+      Map tempObj = {};
+      if (items['storyImage'].length > 0)
+        tempObj['storyImage'] =
+            await items['storyImage'][0].get().then((documentSnapshot) {
+          return documentSnapshot.data()['file'];
+        });
+      if (items.containsKey('caption') && items['caption'] != "")
+        tempObj['caption'] = items['caption'];
+      storyItemDetails.add(tempObj);
+    }
+    if (mounted) {
+      setState(() {});
+    }
+  }
+
+  initState() {
+    super.initState();
+    _getStoryItems();
+  }
+
+  final storyController = StoryController();
+
+  /// dispose stories Controller
+  @override
+  void dispose() {
+    storyController.dispose();
+    super.dispose();
+  }
+
+  ///Displaying Static story
+  @override
+  Widget build(BuildContext context) {
+    List<StoryItem> items = [];
+    var n = 0;
+    while (storyItemDetails.length > n) {
+      // When there is image or gif.
+      if (storyItemDetails[n].containsKey('storyImage')) {
+        items.add(StoryItem.pageImage(
+            url:
+                "https://firebasestorage.googleapis.com/v0/b/${GlobalConfiguration().get("firebaseProjectID")}.appspot.com/o/flamelink%2Fmedia%2F${storyItemDetails[n]['storyImage']}?alt=media",
+            imageFit: BoxFit.cover,
+            // shown: true,
+            controller: storyController,
+            caption: storyItemDetails[n].containsKey('caption')
+                ? storyItemDetails[n]['caption']
+                : null));
+      }
+      // When there is only caption and no image.
+      if (!storyItemDetails[n].containsKey('storyImage') &&
+          storyItemDetails[n].containsKey('caption')) {
+        items.add(StoryItem.text(
+          title: storyItemDetails[n]['caption'],
+          backgroundColor: AppColors.primaryColor,
+        ));
+      }
+      n++;
+    }
+    return Scaffold(
+      body: storyItemDetails.length > 0
+          ? StoryView(
+              storyItems: items,
+              onStoryShow: (s) {},
+              onComplete: () {
+                Navigator.pop(context);
+              },
+              progressPosition: ProgressPosition.top,
+              repeat: false,
+              controller: storyController,
+            )
+          : Container(
+              color: Colors.black87,
+              child: Shimmer.fromColors(
+                baseColor: Colors.white,
+                highlightColor: AppColors.primaryColor,
+                child: Center(
+                  child: Image.asset(
+                    'assets/images/icon.png',
+                    height: 100.0,
+                  ),
+                ),
+              ),
+            ),
+    );
+  }
+}
