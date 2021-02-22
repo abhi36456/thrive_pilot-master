@@ -12,7 +12,7 @@ class DashboardTable extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           border: Border.all(
-            color: Colors.white,
+            color: Colors.black,
           ),
           borderRadius: BorderRadius.circular(10)),
       child: Column(
@@ -23,7 +23,7 @@ class DashboardTable extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               title ?? "",
-              style: TextStyle(fontSize: 22, color: Colors.white),
+              style: TextStyle(fontSize: 22, color: Colors.black),
             ),
           ),
           SizedBox(
@@ -31,9 +31,9 @@ class DashboardTable extends StatelessWidget {
           ),
           Table(
             border: TableBorder(
-              top: BorderSide(color: Colors.white),
-              horizontalInside: BorderSide(color: Colors.white),
-              verticalInside: BorderSide(color: Colors.white),
+              top: BorderSide(color: Colors.black),
+              horizontalInside: BorderSide(color: Colors.black),
+              verticalInside: BorderSide(color: Colors.black),
             ),
             children: [
               TableRow(
@@ -44,7 +44,7 @@ class DashboardTable extends StatelessWidget {
                     child: FittedBox(
                       child: Text(
                         "Today",
-                        style: TextStyle(fontSize: 18, color: Colors.white),
+                        style: TextStyle(fontSize: 18, color: Colors.black),
                       ),
                     ),
                   ),
@@ -54,7 +54,7 @@ class DashboardTable extends StatelessWidget {
                     child: FittedBox(
                       child: Text(
                         "This Week",
-                        style: TextStyle(fontSize: 18, color: Colors.white),
+                        style: TextStyle(fontSize: 18, color: Colors.black),
                       ),
                     ),
                   ),
@@ -64,7 +64,7 @@ class DashboardTable extends StatelessWidget {
                     child: FittedBox(
                       child: Text(
                         "This Month",
-                        style: TextStyle(fontSize: 18, color: Colors.white),
+                        style: TextStyle(fontSize: 18, color: Colors.black),
                       ),
                     ),
                   ),
@@ -74,7 +74,7 @@ class DashboardTable extends StatelessWidget {
                     child: FittedBox(
                       child: Text(
                         "All Time",
-                        style: TextStyle(fontSize: 18, color: Colors.white),
+                        style: TextStyle(fontSize: 18, color: Colors.black),
                       ),
                     ),
                   ),
@@ -87,7 +87,7 @@ class DashboardTable extends StatelessWidget {
                     alignment: Alignment.center,
                     child: Text(
                       double.parse(data.today).toStringAsFixed(2),
-                      style: TextStyle(fontSize: 16, color: Colors.white),
+                      style: TextStyle(fontSize: 16, color: Colors.black),
                     ),
                   ),
                   Container(
@@ -95,7 +95,7 @@ class DashboardTable extends StatelessWidget {
                     alignment: Alignment.center,
                     child: Text(
                       double.parse(data.thisWeek).toStringAsFixed(2),
-                      style: TextStyle(fontSize: 16, color: Colors.white),
+                      style: TextStyle(fontSize: 16, color: Colors.black),
                     ),
                   ),
                   Container(
@@ -103,7 +103,7 @@ class DashboardTable extends StatelessWidget {
                     alignment: Alignment.center,
                     child: Text(
                       double.parse(data.thisMonth).toStringAsFixed(2),
-                      style: TextStyle(fontSize: 16, color: Colors.white),
+                      style: TextStyle(fontSize: 16, color: Colors.black),
                     ),
                   ),
                   Container(
@@ -111,7 +111,7 @@ class DashboardTable extends StatelessWidget {
                     alignment: Alignment.center,
                     child: Text(
                       double.parse(data.all).toStringAsFixed(2),
-                      style: TextStyle(fontSize: 16, color: Colors.white),
+                      style: TextStyle(fontSize: 16, color: Colors.black),
                     ),
                   ),
                 ],

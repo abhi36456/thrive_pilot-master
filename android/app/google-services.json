@@ -20,10 +20,6 @@
             "package_name": "com.app.thrivepilot",
             "certificate_hash": "a86b513a800762360371a452e1aca6541b5cd290"
           }
-        },
-        {
-          "client_id": "729228812626-c77o49qjri5b2159epboqfdntmeo4oiu.apps.googleusercontent.com",
-          "client_type": 3
         }
       ],
       "api_key": [
@@ -35,7 +31,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "729228812626-c77o49qjri5b2159epboqfdntmeo4oiu.apps.googleusercontent.com",
+              "client_id": "729228812626-m1bu8i0emirhrlvgb4jikm1ek2g4bf07.apps.googleusercontent.com",
               "client_type": 3
             },
             {
@@ -64,10 +60,6 @@
             "package_name": "com.deligence.meditation4soul",
             "certificate_hash": "a86b513a800762360371a452e1aca6541b5cd290"
           }
-        },
-        {
-          "client_id": "729228812626-c77o49qjri5b2159epboqfdntmeo4oiu.apps.googleusercontent.com",
-          "client_type": 3
         }
       ],
       "api_key": [
@@ -79,7 +71,7 @@
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "729228812626-c77o49qjri5b2159epboqfdntmeo4oiu.apps.googleusercontent.com",
+              "client_id": "729228812626-m1bu8i0emirhrlvgb4jikm1ek2g4bf07.apps.googleusercontent.com",
               "client_type": 3
             },
             {

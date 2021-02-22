@@ -8,10 +8,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:global_configuration/global_configuration.dart';
 import 'package:shimmer/shimmer.dart';
-import 'package:thrive_pilot/models/summary.dart';
 import 'package:thrive_pilot/utils/api.dart';
 import 'package:thrive_pilot/utils/app_colors.dart';
-import 'package:thrive_pilot/widgets/dashboard_table.dart';
 
 import 'pages/calendar_events.dart';
 import 'pages/dashboard/details.dart';
@@ -28,36 +26,36 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> with WidgetsBindingObserver {
-  Summary summary;
   String username = "", photoUrl;
-  bool isStored = false;
-  void getData() async {
-    try {
-      Dio dio = Dio();
-      Response response = await dio.post(baseUrl + "get_minute.php",
-          data: FormData.fromMap(
-              {"email": FirebaseAuth.instance.currentUser.email}));
-      print(response.data);
-      var data = jsonDecode(response.data);
-      setState(() {
-        isStored = true;
-        summary = Summary.fromJson(data["data"]);
-      });
-    } catch (e) {
-      print(e);
-    }
-  }
-
+  String streak = "0", focusSession = "0", meditateSession = "0";
   @override
   void dispose() {
     super.dispose();
     categoryList.clear();
   }
 
+  void getSessions() async {
+    try {
+      Dio dio = Dio();
+      Response response = await dio.post(baseUrl + "get_weeklyData.php",
+          data: FormData.fromMap(
+              {"email": FirebaseAuth.instance.currentUser.email}));
+      print(response.data);
+      var data = jsonDecode(response.data);
+      setState(() {
+        streak = data["data"]["streak"].toString();
+        focusSession = data["data"]["focusSession"].toString();
+        meditateSession = data["data"]["meditateSession"].toString();
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
   initState() {
     super.initState();
-    getData();
     currentuser();
+    // getSessions();
     _getFeaturedStories();
     _getCategories();
     WidgetsBinding.instance.addObserver(this);
@@ -158,8 +156,16 @@ class _HomeState extends State<Home> with WidgetsBindingObserver {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Container(
-              decoration: BoxDecoration(gradient: AppColors.gradient),
-              padding: EdgeInsets.only(bottom: 50),
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                colors: [
+                  AppColors.secondary,
+                  AppColors.primaryColor,
+                ],
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+              )),
+              padding: EdgeInsets.only(bottom: 40),
               child: Column(
                 children: [
                   Container(
@@ -178,7 +184,7 @@ class _HomeState extends State<Home> with WidgetsBindingObserver {
                           width: 15,
                         ),
                         Text(
-                          "Hello $username,",
+                          "Hello $username",
                           overflow: TextOverflow.ellipsis,
                           style: TextStyle(fontSize: 32, color: Colors.white),
                         ),
@@ -229,30 +235,89 @@ class _HomeState extends State<Home> with WidgetsBindingObserver {
                       ],
                     ),
                   ),
-                  SizedBox(height: 20),
-                  summary == null
-                      ? Container()
-                      : isStored
-                          ? Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 15),
-                              child: Column(
-                                children: [
-                                  DashboardTable(
-                                    title: "Mindful Minutes",
-                                    data: summary.meditate,
+                  Container(
+                    decoration: BoxDecoration(color: Colors.white),
+                    padding: EdgeInsets.all(10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Mindful Productivity This Week",
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Card(
+                          child: Container(
+                            padding: EdgeInsets.all(10),
+                            child: Row(
+                              children: [
+                                Expanded(
+                                  child: Center(
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          streak,
+                                          style: TextStyle(
+                                              fontSize: MediaQuery.of(context)
+                                                      .size
+                                                      .height *
+                                                  .1,
+                                              color: AppColors.secondary
+                                                  .withOpacity(0.7)),
+                                        ),
+                                        Text(
+                                          "Day Streak",
+                                          style: TextStyle(fontSize: 18),
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                  SizedBox(
-                                    height: 20,
-                                  ),
-                                  DashboardTable(
-                                    title: "Focus Minutes",
-                                    data: summary.focus,
-                                  ),
-                                ],
-                              ),
-                            )
-                          : Container(),
+                                ),
+                                Expanded(
+                                    child: Column(
+                                  children: [
+                                    Text(
+                                      focusSession,
+                                      style: TextStyle(
+                                          color: AppColors.secondary,
+                                          fontSize: 28),
+                                    ),
+                                    Text(
+                                      "Focus Sessions",
+                                      style: TextStyle(fontSize: 18),
+                                    ),
+                                    Divider(
+                                      color: AppColors.primaryColor,
+                                      thickness: 7,
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                      meditateSession,
+                                      style: TextStyle(
+                                          color: AppColors.secondary,
+                                          fontSize: 28),
+                                    ),
+                                    Text(
+                                      "Meditate Sessions",
+                                      style: TextStyle(fontSize: 18),
+                                    ),
+                                    Divider(
+                                      color: AppColors.primaryColor,
+                                      thickness: 7,
+                                    ),
+                                  ],
+                                )),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -339,9 +404,6 @@ class _HomeState extends State<Home> with WidgetsBindingObserver {
         ],
         index: _selectedIndex,
         onTap: (int index) {
-          if (index == 0) {
-            getData();
-          }
           setState(() {
             selected = null;
             _selectedIndex = index;

@@ -80,13 +80,13 @@ class _FocusPageState extends State<FocusPage> with WidgetsBindingObserver {
     setState(() {
       _isStarted = true;
     });
-    // _controller = CountdownTimerController(
-    //     endTime:
-    //         DateTime.now().millisecondsSinceEpoch + (60000 * _selectedTime),
-    //     onEnd: end);
     _controller = CountdownTimerController(
-        endTime: DateTime.now().millisecondsSinceEpoch + (1000 * _selectedTime),
+        endTime:
+            DateTime.now().millisecondsSinceEpoch + (60000 * _selectedTime),
         onEnd: end);
+    // _controller = CountdownTimerController(
+    //     endTime: DateTime.now().millisecondsSinceEpoch + (1000 * _selectedTime),
+    //     onEnd: end);
 
     Future.delayed(Duration(seconds: 1), () {
       _controller.addListener(() {

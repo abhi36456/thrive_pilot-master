@@ -141,6 +141,18 @@ class _CalendarEventsState extends State<CalendarEvents> {
         iconTheme: IconThemeData(color: AppColors.primaryColor),
         elevation: 0,
         title: Text("Schedule", style: TextStyle(color: Color(0xFF000000))),
+        actions: [
+          // FlatButton(
+          //   child: Text("ADD TO CALENDAR"),
+          //   onPressed: () async {
+          //     if (await canLaunch("https://calendar.google.com/")) {
+          //       await launch("https://calendar.google.com/");
+          //     } else {
+          //       Fluttertoast.showToast(msg: "Cannot open Calendar");
+          //     }
+          //   },
+          // ),
+        ],
       ),
       body: filtered == null
           ? Center(child: CircularProgressIndicator())

@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -24,15 +22,9 @@ class _LoginData {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  bool appleLogin = false;
   @override
   void initState() {
     super.initState();
-    if (Platform.isIOS) {
-      //check for ios if developing for both android & ios
-      setState(() {});
-      appleLogin = true;
-    }
   }
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
