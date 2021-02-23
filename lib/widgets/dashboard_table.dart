@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:thrive_pilot/models/summary.dart';
+import 'package:thrive_pilot/utils/app_colors.dart';
 
 class DashboardTable extends StatelessWidget {
   final Data data;
@@ -12,7 +13,7 @@ class DashboardTable extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
           border: Border.all(
-            color: Colors.black,
+            color: AppColors.primaryColor,
           ),
           borderRadius: BorderRadius.circular(10)),
       child: Column(
@@ -23,7 +24,7 @@ class DashboardTable extends StatelessWidget {
             alignment: Alignment.center,
             child: Text(
               title ?? "",
-              style: TextStyle(fontSize: 22, color: Colors.black),
+              style: TextStyle(fontSize: 22, color: AppColors.primaryColor),
             ),
           ),
           SizedBox(
@@ -31,9 +32,9 @@ class DashboardTable extends StatelessWidget {
           ),
           Table(
             border: TableBorder(
-              top: BorderSide(color: Colors.black),
-              horizontalInside: BorderSide(color: Colors.black),
-              verticalInside: BorderSide(color: Colors.black),
+              top: BorderSide(color: AppColors.primaryColor),
+              horizontalInside: BorderSide(color: AppColors.primaryColor),
+              verticalInside: BorderSide(color: AppColors.primaryColor),
             ),
             children: [
               TableRow(
@@ -44,7 +45,8 @@ class DashboardTable extends StatelessWidget {
                     child: FittedBox(
                       child: Text(
                         "Today",
-                        style: TextStyle(fontSize: 18, color: Colors.black),
+                        style: TextStyle(
+                            fontSize: 18, color: AppColors.primaryColor),
                       ),
                     ),
                   ),
@@ -54,7 +56,8 @@ class DashboardTable extends StatelessWidget {
                     child: FittedBox(
                       child: Text(
                         "This Week",
-                        style: TextStyle(fontSize: 18, color: Colors.black),
+                        style: TextStyle(
+                            fontSize: 18, color: AppColors.primaryColor),
                       ),
                     ),
                   ),
@@ -64,7 +67,8 @@ class DashboardTable extends StatelessWidget {
                     child: FittedBox(
                       child: Text(
                         "This Month",
-                        style: TextStyle(fontSize: 18, color: Colors.black),
+                        style: TextStyle(
+                            fontSize: 18, color: AppColors.primaryColor),
                       ),
                     ),
                   ),
@@ -74,7 +78,8 @@ class DashboardTable extends StatelessWidget {
                     child: FittedBox(
                       child: Text(
                         "All Time",
-                        style: TextStyle(fontSize: 18, color: Colors.black),
+                        style: TextStyle(
+                            fontSize: 18, color: AppColors.primaryColor),
                       ),
                     ),
                   ),
@@ -86,32 +91,36 @@ class DashboardTable extends StatelessWidget {
                     padding: const EdgeInsets.all(5),
                     alignment: Alignment.center,
                     child: Text(
-                      double.parse(data.today).toStringAsFixed(2),
-                      style: TextStyle(fontSize: 16, color: Colors.black),
+                      double.parse(data.today).toStringAsFixed(0),
+                      style: TextStyle(
+                          fontSize: 16, color: AppColors.primaryColor),
                     ),
                   ),
                   Container(
                     padding: const EdgeInsets.all(5),
                     alignment: Alignment.center,
                     child: Text(
-                      double.parse(data.thisWeek).toStringAsFixed(2),
-                      style: TextStyle(fontSize: 16, color: Colors.black),
+                      double.parse(data.thisWeek).toStringAsFixed(0),
+                      style: TextStyle(
+                          fontSize: 16, color: AppColors.primaryColor),
                     ),
                   ),
                   Container(
                     padding: const EdgeInsets.all(5),
                     alignment: Alignment.center,
                     child: Text(
-                      double.parse(data.thisMonth).toStringAsFixed(2),
-                      style: TextStyle(fontSize: 16, color: Colors.black),
+                      double.parse(data.thisMonth).toStringAsFixed(0),
+                      style: TextStyle(
+                          fontSize: 16, color: AppColors.primaryColor),
                     ),
                   ),
                   Container(
                     padding: const EdgeInsets.all(5),
                     alignment: Alignment.center,
                     child: Text(
-                      double.parse(data.all).toStringAsFixed(2),
-                      style: TextStyle(fontSize: 16, color: Colors.black),
+                      double.parse(data.all).toStringAsFixed(0),
+                      style: TextStyle(
+                          fontSize: 16, color: AppColors.primaryColor),
                     ),
                   ),
                 ],

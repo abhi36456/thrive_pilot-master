@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_countdown_timer/index.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sleek_circular_slider/sleek_circular_slider.dart';
 import 'package:thrive_pilot/utils/api.dart';
 import 'package:thrive_pilot/utils/app_colors.dart';
@@ -106,8 +105,6 @@ class _FocusPageState extends State<FocusPage> with WidgetsBindingObserver {
   }
 
   logFocus(time) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String key = prefs.get("key");
     try {
       Dio dio = Dio();
       await dio.post(baseUrl + "save_focus_meditate.php",
@@ -171,7 +168,6 @@ class _FocusPageState extends State<FocusPage> with WidgetsBindingObserver {
 
   @override
   void dispose() {
-    _controller?.removeListener(() {});
     _controller?.disposeTimer();
     _controller?.dispose();
     WidgetsBinding.instance.removeObserver(this);

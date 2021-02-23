@@ -147,10 +147,10 @@ class _DashboardState extends State<Dashboard> {
                   "https://calendar.google.com/calendar/r/eventedit?text=" +
                       selected[0].toUpperCase() +
                       selected.substring(1) +
-                      " Session: ThrivePilot";
+                      " Session: ThrivePilot&dates=${DateTime.now().toString().replaceAll('-', '').replaceAll(':', '').replaceAll(' ', 'T')}/${DateTime.now().add(Duration(hours: 1)).toString().replaceAll('-', '').replaceAll(':', '').replaceAll(' ', 'T')}&ctz=${DateTime.now().timeZoneName}";
               print(url);
               if (await canLaunch(url)) {
-                await launch(url, forceWebView: true, enableJavaScript: true);
+                await launch(url);
               } else {
                 Fluttertoast.showToast(msg: "Cannot open Calendar");
               }

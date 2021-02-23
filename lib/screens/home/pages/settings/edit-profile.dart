@@ -199,8 +199,8 @@ class _EditProfileState extends State<EditProfile> {
                       height: 70,
                       // height: MediaQuery.of(context).size.height * .31,
                       child: Container(
-                        height: 45,
-                        width: 45,
+                        height: 60,
+                        width: 60,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           shape: BoxShape.circle,
@@ -250,6 +250,9 @@ class _EditProfileState extends State<EditProfile> {
                   : SizedBox(),
             ],
           ),
+          SizedBox(
+            width: 20,
+          ),
           Expanded(
             child: Container(
               // width: MediaQuery.of(context).size.width / 2 - 20,
@@ -277,8 +280,8 @@ class _EditProfileState extends State<EditProfile> {
             child: Stack(
               children: [
                 Container(
-                  height: 80,
-                  width: 80,
+                  height: 100,
+                  width: 100,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
@@ -346,6 +349,9 @@ class _EditProfileState extends State<EditProfile> {
                     : Container(),
               ],
             ),
+          ),
+          SizedBox(
+            width: 10,
           ),
           Expanded(
             child: Text(

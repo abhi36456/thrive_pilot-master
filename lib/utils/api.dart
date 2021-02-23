@@ -1,1 +1,1 @@
-final String baseUrl = "https://thrivepilot.co/APIs";
+final String baseUrl = "https://thrivepilot.co/APIs/";

@@ -55,7 +55,7 @@ class _HomeState extends State<Home> with WidgetsBindingObserver {
   initState() {
     super.initState();
     currentuser();
-    // getSessions();
+    getSessions();
     _getFeaturedStories();
     _getCategories();
     WidgetsBinding.instance.addObserver(this);
@@ -404,6 +404,9 @@ class _HomeState extends State<Home> with WidgetsBindingObserver {
         ],
         index: _selectedIndex,
         onTap: (int index) {
+          if (index == 0) {
+            getSessions();
+          }
           setState(() {
             selected = null;
             _selectedIndex = index;
