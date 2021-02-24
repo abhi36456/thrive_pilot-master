@@ -144,7 +144,7 @@ class _DashboardState extends State<Dashboard> {
           GestureDetector(
             onTap: () async {
               String url =
-                  "https://calendar.google.com/calendar/r/eventedit?text=" +
+                  "https://www.google.com/calendar/render?action=TEMPLATE&text=" +
                       selected[0].toUpperCase() +
                       selected.substring(1) +
                       " Session: ThrivePilot&dates=${DateTime.now().toString().replaceAll('-', '').replaceAll(':', '').replaceAll(' ', 'T')}/${DateTime.now().add(Duration(hours: 1)).toString().replaceAll('-', '').replaceAll(':', '').replaceAll(' ', 'T')}&ctz=${DateTime.now().timeZoneName}";
@@ -154,7 +154,6 @@ class _DashboardState extends State<Dashboard> {
               } else {
                 Fluttertoast.showToast(msg: "Cannot open Calendar");
               }
-              // getCalendarEvents();
             },
             child: Container(
               margin: const EdgeInsets.only(bottom: 15),
