@@ -13,8 +13,9 @@
     <list default="true" id="d3479b52-0dfb-4073-9a8c-537b1bd89ff3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ios/Runner/Info.plist" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Runner/Info.plist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/home/pages/timer/timer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home/pages/timer/timer.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/f872507f30e2ff2523f0f1d19160266e.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/f872507f30e2ff2523f0f1d19160266e.cache.dill.track.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/home/pages/calendar_events.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home/pages/calendar_events.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/home/pages/settings/setting.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home/pages/settings/setting.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614191398492</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ios icon">
+      <created>1614417817751</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1614417817751</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -108,7 +116,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="changes" />
     <MESSAGE value="calendar issue fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="calendar issue fix" />
+    <MESSAGE value="ios icon" />
+    <option name="LAST_COMMIT_MESSAGE" value="ios icon" />
   </component>
   <component name="WindowStateProjectService">
     <state x="596" y="294" key="#Notifications" timestamp="1613665902746">
@@ -119,42 +128,42 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="488" y="85" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1613672997607" />
-    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1614191394176">
+    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1614417815814">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1614191394176" />
+    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1614417815814" />
     <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1614261658390">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1614261658390" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1614263184001">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1614428211090">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1614263184001" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1614428211090" />
     <state width="1398" height="414" key="GridCell.Tab.0.bottom/0.25.1440.805@0.25.1440.805" timestamp="1613651685702" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1614263184001">
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1614428211089">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1614263184001" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1614428211089" />
     <state width="1398" height="414" key="GridCell.Tab.0.center/0.25.1440.805@0.25.1440.805" timestamp="1613651685698" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1614263184000">
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1614428211089">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1614263184000" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1614428211089" />
     <state width="1398" height="414" key="GridCell.Tab.0.left/0.25.1440.805@0.25.1440.805" timestamp="1613651685695" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1614263184001">
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1614428211089">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1614263184001" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1614428211089" />
     <state width="1398" height="414" key="GridCell.Tab.0.right/0.25.1440.805@0.25.1440.805" timestamp="1613651685698" />
     <state x="184" y="14" key="SettingsEditor" timestamp="1613671218682">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="14" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1613671218682" />
-    <state x="304" y="127" key="Vcs.Push.Dialog.v2" timestamp="1614191407044">
+    <state x="304" y="127" key="Vcs.Push.Dialog.v2" timestamp="1614417821242">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="304" y="127" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1614191407044" />
+    <state x="304" y="127" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1614417821242" />
     <state x="320" y="164" key="Vcs.Push.Dialog.v2/0.25.1440.805@0.25.1440.805" timestamp="1613665861234" />
     <state x="503" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613666011214">
       <screen x="0" y="25" width="1440" height="805" />

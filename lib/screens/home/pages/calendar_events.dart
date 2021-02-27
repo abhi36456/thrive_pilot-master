@@ -18,7 +18,10 @@ class CalendarEvents extends StatefulWidget {
 class _CalendarEventsState extends State<CalendarEvents> {
   List<Event> filtered;
   void getCalendarEvents() async {
-    var _scopes = const [CalendarApi.CalendarEventsScope];
+    var _scopes = const [
+      CalendarApi.CalendarEventsScope,
+      CalendarApi.CalendarReadonlyScope
+    ];
     var _credentials;
     if (Platform.isAndroid) {
       _credentials = new ClientId(
@@ -42,8 +45,6 @@ class _CalendarEventsState extends State<CalendarEvents> {
     } else {
       var date = DateFormat.jm()
           .format(DateTime.tryParse(prefs.get("expiry")).toLocal());
-      print(date);
-      print(prefs.get("expiry"));
       if (DateTime.tryParse(prefs.get("expiry"))
           .toLocal()
           .isBefore(DateTime.now())) {
@@ -57,7 +58,6 @@ class _CalendarEventsState extends State<CalendarEvents> {
           "refresh_token": prefs.get("refreshToken"),
           "grant_type": "refresh_token"
         });
-        print(response.data);
         // authClient = await clientViaUserConsent(_credentials, _scopes, prompt);
         // print(authClient.credentials.accessToken.expiry);
         prefs.setString("type", response.data["token_type"]);
@@ -88,19 +88,22 @@ class _CalendarEventsState extends State<CalendarEvents> {
       }
     }
     CalendarApi calendarApi = CalendarApi(authClient);
+    var cale = await calendarApi.calendarList.list();
+    // print(cale.nextPageToken);
+    // cale.items.forEach((element) {
+    //   print("DES: ${element.description}");
+    //   print("ID: ${element.id}");
+    // });
     var calEvents = await calendarApi.events.list(
-      "primary",
+      cale.items[0].id,
     );
+    print(calEvents.items);
     setState(() {
       filtered = calEvents.items.where((element) {
-        print(element.summary);
-        print(element.end.dateTime);
-        print(element.start.dateTime);
         return element.start.dateTime == null
             ? false
             : element.start.dateTime.difference(DateTime.now()).inDays == 0;
       }).toList();
-      print(filtered);
     });
   }
 

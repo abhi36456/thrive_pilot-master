@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:thrive_pilot/screens/auth/login_page.dart';
 
 import 'edit-profile.dart';
@@ -73,6 +74,8 @@ class _SettingState extends State<Setting> {
             ),
             InkWell(
               onTap: () async {
+                SharedPreferences prefs = await SharedPreferences.getInstance();
+                await prefs.clear();
                 await _googleSignIn.signOut();
                 await _auth.signOut();
                 Navigator.of(context).pushReplacement(
