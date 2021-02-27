@@ -149,11 +149,15 @@ class _DashboardState extends State<Dashboard> {
                       selected.substring(1) +
                       " Session: ThrivePilot&dates=${DateTime.now().toString().replaceAll('-', '').replaceAll(':', '').replaceAll(' ', 'T')}/${DateTime.now().add(Duration(hours: 1)).toString().replaceAll('-', '').replaceAll(':', '').replaceAll(' ', 'T')}&ctz=${DateTime.now().timeZoneName}";
               print(url);
-              if (await canLaunch(url)) {
+              // if (await canLaunch(url)) {
+              try {
                 await launch(url);
-              } else {
-                Fluttertoast.showToast(msg: "Cannot open Calendar");
+              } catch (e) {
+                Fluttertoast.showToast(msg: e.toString());
               }
+              // } else {
+              //   Fluttertoast.showToast(msg: "Cannot open Calendar");
+              // }
             },
             child: Container(
               margin: const EdgeInsets.only(bottom: 15),
