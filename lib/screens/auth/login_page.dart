@@ -1,4 +1,7 @@
+import 'dart:convert';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -6,6 +9,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:thrive_pilot/screens/auth/signup.dart';
 import 'package:thrive_pilot/utils/animation.dart';
+import 'package:thrive_pilot/utils/api.dart';
 import 'package:thrive_pilot/utils/app_colors.dart';
 
 import '../home/home.dart';
@@ -22,9 +26,26 @@ class _LoginData {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  int status = 0;
+  getStatus() async {
+    try {
+      Dio dio = Dio();
+      Response response =
+          await dio.get(baseUrl + "get_google_login_status.php");
+      print(response.data);
+      var data = jsonDecode(response.data);
+      setState(() {
+        status = int.parse(data["data"].toString());
+      });
+    } catch (e) {
+      print(e);
+    }
+  }
+
   @override
   void initState() {
     super.initState();
+    getStatus();
   }
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
@@ -75,16 +96,20 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(
                     height: 20,
                   ),
-                  FadeAnimation(
-                      1.9,
-                      const Text(
-                        "or connect with",
-                        style: TextStyle(fontSize: 14),
-                      )),
-                  SizedBox(
-                    height: 10,
-                  ),
-                  socialLoginWidget(),
+                  status == 1
+                      ? FadeAnimation(
+                          1.9,
+                          const Text(
+                            "or connect with",
+                            style: TextStyle(fontSize: 14),
+                          ))
+                      : Container(),
+                  status == 1
+                      ? SizedBox(
+                          height: 10,
+                        )
+                      : Container(),
+                  status == 1 ? socialLoginWidget() : Container(),
                   const SizedBox(
                     height: 15,
                   ),
@@ -250,34 +275,6 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
         ));
-  }
-
-  ///Login Button Navigate to Home screen
-  Widget loginButtonWidget() {
-    return Positioned(
-      height: 200,
-      width: MediaQuery.of(context).size.width + 20,
-      child: FadeAnimation(
-        1.9,
-        Container(
-          child: InkWell(
-            onTap: () {
-              Navigator.push(
-                  context, CupertinoPageRoute(builder: (context) => Home()));
-            },
-            child: Container(
-              height: 50,
-              width: 50,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(50),
-                color: AppColors.primaryColor,
-              ),
-              child: Icon(Icons.arrow_forward, color: Colors.white),
-            ),
-          ),
-        ),
-      ),
-    );
   }
 
   /// Social login button like Facebook, Twitter, Google

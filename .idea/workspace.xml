@@ -14,8 +14,8 @@
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/f872507f30e2ff2523f0f1d19160266e.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/f872507f30e2ff2523f0f1d19160266e.cache.dill.track.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/home/pages/calendar_events.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home/pages/calendar_events.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/home/pages/settings/setting.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home/pages/settings/setting.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/auth/login_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/auth/login_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/home/pages/timer/timer.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home/pages/timer/timer.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +98,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614417817751</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="calendar id">
+      <created>1614429963528</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1614429963528</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -117,7 +124,8 @@
     <MESSAGE value="changes" />
     <MESSAGE value="calendar issue fix" />
     <MESSAGE value="ios icon" />
-    <option name="LAST_COMMIT_MESSAGE" value="ios icon" />
+    <MESSAGE value="calendar id" />
+    <option name="LAST_COMMIT_MESSAGE" value="calendar id" />
   </component>
   <component name="WindowStateProjectService">
     <state x="596" y="294" key="#Notifications" timestamp="1613665902746">
@@ -128,10 +136,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="488" y="85" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1613672997607" />
-    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1614417815814">
+    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1614429955360">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1614417815814" />
+    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1614429955360" />
     <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1614261658390">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
@@ -160,10 +168,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="14" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1613671218682" />
-    <state x="304" y="127" key="Vcs.Push.Dialog.v2" timestamp="1614417821242">
+    <state x="304" y="127" key="Vcs.Push.Dialog.v2" timestamp="1614429969018">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="304" y="127" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1614417821242" />
+    <state x="304" y="127" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1614429969018" />
     <state x="320" y="164" key="Vcs.Push.Dialog.v2/0.25.1440.805@0.25.1440.805" timestamp="1613665861234" />
     <state x="503" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613666011214">
       <screen x="0" y="25" width="1440" height="805" />
