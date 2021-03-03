@@ -36,7 +36,6 @@ class _CalendarEventsState extends State<CalendarEvents> {
     var authClient;
     if (!prefs.containsKey("expiry")) {
       authClient = await clientViaUserConsent(_credentials, _scopes, prompt);
-      print(authClient.credentials.accessToken.expiry);
       prefs.setString("type", authClient.credentials.accessToken.type);
       prefs.setString("data", authClient.credentials.accessToken.data);
       prefs.setString(
@@ -89,21 +88,28 @@ class _CalendarEventsState extends State<CalendarEvents> {
     }
     CalendarApi calendarApi = CalendarApi(authClient);
     var cale = await calendarApi.calendarList.list();
-    // print(cale.nextPageToken);
-    // cale.items.forEach((element) {
-    //   print("DES: ${element.description}");
-    //   print("ID: ${element.id}");
-    // });
-    var calEvents = await calendarApi.events.list(
-      cale.items[0].id,
-    );
-    print(calEvents.items);
+    List<Events> events = [];
+    for (var i = 0; i < cale.items.length; i++) {
+      var a = await calendarApi.events.list(
+        cale.items[i].id,
+      );
+      events.add(a);
+    }
     setState(() {
-      filtered = calEvents.items.where((element) {
-        return element.start.dateTime == null
-            ? false
-            : element.start.dateTime.difference(DateTime.now()).inDays == 0;
-      }).toList();
+      filtered = [];
+      events.forEach((element) {
+        filtered.addAll(element.items.where((e) {
+          return e.start.dateTime == null
+              ? false
+              : e.start.dateTime.difference(DateTime.now()).inDays == 0;
+        }));
+      });
+
+      // filtered = calEvents.items.where((element) {
+      //   return element.start.dateTime == null
+      //       ? false
+      //       : element.start.dateTime.difference(DateTime.now()).inDays == 0;
+      // }).toList();
     });
   }
 

@@ -10,7 +10,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d3479b52-0dfb-4073-9a8c-537b1bd89ff3" name="Default Changelist" comment="" />
+    <list default="true" id="d3479b52-0dfb-4073-9a8c-537b1bd89ff3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/f872507f30e2ff2523f0f1d19160266e.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/f872507f30e2ff2523f0f1d19160266e.cache.dill.track.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/home/pages/calendar_events.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home/pages/calendar_events.dart" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -106,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614617687986</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="version up">
+      <created>1614618065369</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1614618065369</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -127,7 +140,8 @@
     <MESSAGE value="ios icon" />
     <MESSAGE value="calendar id" />
     <MESSAGE value="google signin status" />
-    <option name="LAST_COMMIT_MESSAGE" value="google signin status" />
+    <MESSAGE value="version up" />
+    <option name="LAST_COMMIT_MESSAGE" value="version up" />
   </component>
   <component name="WindowStateProjectService">
     <state x="596" y="294" key="#Notifications" timestamp="1613665902746">
@@ -138,42 +152,42 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="488" y="85" key="#com.intellij.ide.util.MemberChooser/0.0.1366.738@0.0.1366.738" timestamp="1613672997607" />
-    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1614617681501">
+    <state x="310" y="0" key="CommitChangelistDialog2" timestamp="1614618063878">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1614617681501" />
+    <state x="310" y="0" key="CommitChangelistDialog2/0.0.1366.738@0.0.1366.738" timestamp="1614618063878" />
     <state x="463" y="124" key="FileChooserDialogImpl" timestamp="1614261658390">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="463" y="124" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1614261658390" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1614428211090">
+    <state width="1323" height="176" key="GridCell.Tab.0.bottom" timestamp="1614781240650">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1614428211090" />
+    <state width="1323" height="176" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1614781240650" />
     <state width="1398" height="414" key="GridCell.Tab.0.bottom/0.25.1440.805@0.25.1440.805" timestamp="1613651685702" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1614428211089">
+    <state width="1323" height="176" key="GridCell.Tab.0.center" timestamp="1614781240650">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1614428211089" />
+    <state width="1323" height="176" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1614781240650" />
     <state width="1398" height="414" key="GridCell.Tab.0.center/0.25.1440.805@0.25.1440.805" timestamp="1613651685698" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1614428211089">
+    <state width="1323" height="176" key="GridCell.Tab.0.left" timestamp="1614781240650">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1614428211089" />
+    <state width="1323" height="176" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1614781240650" />
     <state width="1398" height="414" key="GridCell.Tab.0.left/0.25.1440.805@0.25.1440.805" timestamp="1613651685695" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1614428211089">
+    <state width="1323" height="176" key="GridCell.Tab.0.right" timestamp="1614781240650">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1614428211089" />
+    <state width="1323" height="176" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1614781240650" />
     <state width="1398" height="414" key="GridCell.Tab.0.right/0.25.1440.805@0.25.1440.805" timestamp="1613651685698" />
     <state x="184" y="14" key="SettingsEditor" timestamp="1613671218682">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="184" y="14" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1613671218682" />
-    <state x="304" y="127" key="Vcs.Push.Dialog.v2" timestamp="1614617735348">
+    <state x="304" y="127" key="Vcs.Push.Dialog.v2" timestamp="1614618071990">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="304" y="127" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1614617735348" />
+    <state x="304" y="127" key="Vcs.Push.Dialog.v2/0.0.1366.738@0.0.1366.738" timestamp="1614618071990" />
     <state x="320" y="164" key="Vcs.Push.Dialog.v2/0.25.1440.805@0.25.1440.805" timestamp="1613665861234" />
     <state x="503" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1613666011214">
       <screen x="0" y="25" width="1440" height="805" />
